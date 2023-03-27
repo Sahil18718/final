@@ -15,7 +15,7 @@ postRouter.post("/create",async(req,res)=>{
     res.status(200).send(" post has been created")
 })
 
-postRouter.patch("/update",async(req,res)=>{
+postRouter.patch("/update/:postID",async(req,res)=>{
     const{postID}=req.params
     const payload=req.body
     try {
@@ -27,7 +27,7 @@ postRouter.patch("/update",async(req,res)=>{
     
 })
 
-postRouter.delete("/delete",async(req,res)=>{
+postRouter.delete("/delete/:postID",async(req,res)=>{
     const {postID}=req.params
     try {
         await PostModel.findByIdAndDelete({_id:postID})
