@@ -10,7 +10,7 @@ const app=express()
 
 
 app.use(express.json())
-app.use(cors)
+
 
 app.get("/",(req,res)=>{
     res.status(200).send("home page")
@@ -21,7 +21,7 @@ app.use(authenticate)
 app.use("/posts",postRouter)
 
 
-app.listen (process.env.port,async()=>{
+app.listen(process.env.port,async()=>{
 
     try {
         await connection
